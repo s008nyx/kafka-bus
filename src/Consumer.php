@@ -85,7 +85,7 @@ class Consumer
     {
         if ($this->cache) {
             try {
-                return $this->cache->get('illuminate:queue:restart');
+                return $this->cache->get('illuminate:queue:restart', 0);
             } catch (InvalidArgumentException $e) {
                 return 0;
             }
