@@ -15,7 +15,7 @@ KAFKA_SSL_CERTIFICATE_LOCATION=/path/to/chain.crt
 ```
 
 ## Usage
-###Create Handler
+### Create Handler
 MyHandler.php
 
 ```php
@@ -59,7 +59,7 @@ class MyHandler implements KafkaHandler
 
 ```
 
-###Create artisan command
+### Create artisan command
 KafkaCommand.php
 ```php
 <?php
@@ -92,7 +92,7 @@ class KafkaConsumer extends Command
 }
 ```
 
-###Start command
+### Start command
 ```shell
 php artisan kafka:consume
 ```
