@@ -2,6 +2,8 @@
 
 namespace KafkaBus;
 
+use RdKafka\Message;
+
 /**
  * Kafka message processing handler
  */
@@ -15,10 +17,10 @@ interface KafkaHandler
 
     /**
      * Processing success message
-     * @param $message
+     * @param Message $message
      * @return bool
      */
-    public function process($message): bool;
+    public function process(Message $message): bool;
 
     /**
      * Processing fail message
