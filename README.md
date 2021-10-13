@@ -2,6 +2,12 @@
 
 ## Installation
 
+### Install package
+```
+composer require s008nyx/kafka-bus
+```
+
+### Add environment variables
 ```dotenv
 KAFKA_BROKERS="kafka-node01:9093,kafka-node02:9093"
 KAFKA_AUTOCOMMIT=true
