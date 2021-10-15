@@ -4,23 +4,10 @@ namespace KafkaBus;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Cache\Repository as CacheContract;
+use Illuminate\Contracts\Config\Repository as ConfigContract;
 
 class KafkaBusServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('kafka-bus.php'),
-            ], 'config');
-        }
-    }
-
     /**
      * Register the application services.
      *
@@ -31,7 +18,10 @@ class KafkaBusServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'kafka-bus');
 
         $this->app->bind(Consumer::class, function ($app) {
-            return new Consumer($app->make(CacheContract::class));
+            return new Consumer(
+                $app->make(CacheContract::class),
+                $app->make(ConfigContract::class)
+            );
         });
     }
 }

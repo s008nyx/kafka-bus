@@ -7,6 +7,19 @@
 composer require s008nyx/kafka-bus
 ```
 
+### For Lumen
+Open your `bootstrap/app.php` file and:
+
+- add this line before `Register Container Bindings` section:
+```php
+     $app->configure('kafka-bus');
+```
+
+- add this line in `Register Service Providers` section:
+```php
+    $app->register(\KafkaBus\KafkaBusServiceProvider::class);
+```
+
 ### Add environment variables
 ```dotenv
 KAFKA_BROKERS="kafka-node01:9093,kafka-node02:9093"

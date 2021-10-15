@@ -1,6 +1,6 @@
 {
   "name": "s008nyx/kafka-bus",
-  "description": "Kafka bus integration to Laravel",
+  "description": "Kafka bus integration to Laravel/Lumen",
   "keywords": [
     "laravel",
     "kafka",
@@ -15,7 +15,9 @@
   ],
   "require": {
     "php": "^7.2",
-    "laravel/framework": "^8.0 || ^7.0",
+    "illuminate/support": "^8.0 || ^7.0",
+    "illuminate/contracts": "^8.0 || ^7.0",
+    "illuminate/config": "^8.0 || ^7.0",
     "ext-json": "*",
     "ext-rdkafka": "*"
   },
